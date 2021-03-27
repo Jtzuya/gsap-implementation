@@ -34,17 +34,17 @@
 
     <div class="hero">
         <div class="content">
-            <h1>Beautifully Crafted Web Experiences</h1>
-            <div class="prof">
+            <h1 class="stagger1">Beautifully Crafted Web Experiences</h1>
+            <div class="prof stagger1">
                 <p>UI/UX Web Designer</p>
             </div>
 
-            <svg class="scroll" width="51" height="100" viewBox="0 0 51 100" fill="none">
+            <svg class="scroll stagger1" width="51" height="100" viewBox="0 0 51 100" fill="none">
                 <rect width="51" height="100" />
                 <g id="scroll">
                     <rect id="Rectangle 3" x="2.5" y="2.5" width="46" height="95" rx="23" stroke="#F4F4F4"
                         stroke-width="5" />
-                    <circle id="Ellipse 5" cx="25.5" cy="26.5" r="12.5" fill="#F4F4F4" />
+                    <circle class="circle" id="Ellipse 5" cx="25.5" cy="26.5" r="12.5" fill="#F4F4F4" />
                 </g>
             </svg>
 
@@ -53,17 +53,22 @@
         <svg class="hero-design" width="553" height="553" viewBox="0 0 553 553" fill="none">
             <rect width="553" height="553" />
             <g id="Group 1">
-                <rect id="Rectangle 4" x="276.5" width="138.25" height="138.25" rx="10" fill="#403F3F" />
-                <rect id="Rectangle 7" x="277.883" y="138.25" width="138.25" height="138.25" rx="69.125"
-                    fill="#F19797" />
-                <rect id="Rectangle 5" x="139.633" y="138.25" width="138.25" height="138.25" rx="10" fill="white" />
-                <rect id="Rectangle 10" x="139.633" y="414.75" width="138.25" height="138.25" rx="10" fill="white" />
-                <rect id="Rectangle 11" y="276.5" width="138.25" height="138.25" rx="10" fill="white"
-                    fill-opacity="0.5" />
-                <rect id="Rectangle 6" x="414.75" y="138.25" width="138.25" height="138.25" rx="10" fill="#4E4D4D"
-                    fill-opacity="0.5" />
-                <rect id="Rectangle 8" x="276.5" y="276.5" width="138.25" height="138.25" rx="10" fill="#4E4D4D" />
-                <rect id="Rectangle 9" x="138.25" y="276.5" width="138.25" height="138.25" rx="69.125" fill="#F19797" />
+                <rect class="square-anim" id="Rectangle 4" x="276.5" width="138.25" height="138.25" rx="10"
+                    fill="#403F3F" />
+                <rect class="square-anim" id="Rectangle 7" x="277.883" y="138.25" width="138.25" height="138.25"
+                    rx="69.125" fill="#F19797" />
+                <rect class="square-anim" id="Rectangle 5" x="139.633" y="138.25" width="138.25" height="138.25" rx="10"
+                    fill="white" />
+                <rect class="square-anim" id="Rectangle 10" x="139.633" y="414.75" width="138.25" height="138.25"
+                    rx="10" fill="white" />
+                <rect class="square-anim" id="Rectangle 11" y="276.5" width="138.25" height="138.25" rx="10"
+                    fill="white" fill-opacity="0.5" />
+                <rect class="square-anim" id="Rectangle 6" x="414.75" y="138.25" width="138.25" height="138.25" rx="10"
+                    fill="#4E4D4D" fill-opacity="0.5" />
+                <rect class="square-anim" id="Rectangle 8" x="276.5" y="276.5" width="138.25" height="138.25" rx="10"
+                    fill="#4E4D4D" />
+                <rect class="square-anim" id="Rectangle 9" x="138.25" y="276.5" width="138.25" height="138.25"
+                    rx="69.125" fill="#F19797" />
             </g>
         </svg>
     </div>
@@ -142,6 +147,65 @@
 
     </section>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
+        integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"
+        integrity="sha512-Q+G390ZU2qKo+e4q+kVcJknwfGjKJOdyu5mVMcR95NqL6XaF4lY4nsSvIVB3NDP54ACsS9rqhE1DVqgpApl//Q=="
+        crossorigin="anonymous"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        var tl = gsap.timeline();
+
+        tl.from('.content', {
+            y: '-30%',
+            opacity: 0,
+            duration: 2,
+            ease: Power4.easeOut
+        })
+        tl.from('.stagger1', {
+            opacity: 0,
+            y: -50,
+            stagger: .3,
+            ease: Power4.easeOut,
+            duration: 2
+        }, "-=1.5")
+        tl.from('.hero-design', {
+            opacity: 0,
+            y: 50,
+            ease: Power4.easeOut,
+            duration: 1
+        }, "-=2")
+        gsap.from('.square-anim', {
+            stagger: .2,
+            scale: 0.1,
+            duration: 1,
+            ease: Back.easeOut.config(1.7)
+        })
+
+        gsap.from('.transition2', {
+            scrollTrigger: {
+                trigger: '.transition2',
+                start: 'top bottom'
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1.2,
+            stagger: .3
+        })
+
+        gsap.from('.transition3', {
+            scrollTrigger: {
+                trigger: '.transition3',
+                start: 'top bottom'
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1.2,
+            stagger: .6
+        })
+    </script>
 
 </body>
 

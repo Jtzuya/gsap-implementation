@@ -63,7 +63,7 @@ header {
     }
 
     .scroll {
-        height: 75px;
+        height: 45px;
         margin-top: 3em;
     }
 }
@@ -308,5 +308,20 @@ section {
     
     .hero .content {
         padding: 9em 20em 6em 20em;
+    }
+}
+
+.circle {
+    animation: circleAnim 1s infinite alternate-reverse;
+}
+
+@keyframes circleAnim {
+    from {
+        transform: translate(0.9px, 38.5px);
+        z-index: 5;
+    }
+    to {
+        transform: translate(0.9px, 3.5px);
+        z-index: 5;
     }
 }

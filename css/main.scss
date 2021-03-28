@@ -28,6 +28,10 @@ body {
     }
 }
 
+nav a {
+    font-size: 14px;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -163,6 +167,10 @@ section {
 }
 
 @media only screen and (min-width: 673px) {
+    nav a {
+        font-size: unset;
+    }
+    
     .featured, .portfolio {
         text-align: left;
     }

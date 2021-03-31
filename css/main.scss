@@ -49,6 +49,12 @@ header {
 
 .social-media, .hero-design {
     display: none;
+
+}
+
+.social-media ul li:hover {
+    transform: scale(1.4);
+    transition: 0.2s ease-in-out;
 }
 
 .hero {
